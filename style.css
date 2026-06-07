@@ -1,0 +1,215 @@
+/* =========================================
+   2カラーポートフォリオ
+   Color 1 (Base)  : #f5f0e8  生成り/クリーム
+   Color 2 (Accent): #1c1f3a  ディープネイビー
+   ========================================= */
+
+:root {
+  --base:      #f5f0e8;
+  --accent:    #1c1f3a;
+  --accent-mid:#2e3260;
+  --white:     #ffffff;
+  --border:    rgba(28, 31, 58, 0.15);
+  --font-body: 'Noto Serif JP', Georgia, serif;
+  --font-mono: 'DM Mono', 'Courier New', monospace;
+}
+
+/* ---- Reset & Base ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--base);
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+  transition: opacity 0.2s;
+}
+a:hover { opacity: 0.55; }
+
+img { max-width: 100%; display: block; }
+
+/* ---- HERO ---- */
+.hero {
+  background: var(--accent);
+  color: var(--base);
+  padding: 80px 40px;
+}
+
+.hero-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-name {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--base);
+  position: relative;
+  display: inline-block;
+}
+.hero-name::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--base);
+  margin-top: 10px;
+  opacity: 0.5;
+}
+
+.hero-role {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.hero-bio {
+  font-size: 0.97rem;
+  opacity: 0.85;
+  max-width: 480px;
+  line-height: 1.9;
+}
+
+.hero-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 6px 18px;
+  border: 1.5px solid var(--base);
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--base);
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+}
+.btn:hover {
+  background: var(--base);
+  color: var(--accent);
+  opacity: 1;
+}
+
+/* ---- MAIN / SECTIONS ---- */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+
+.section {
+  padding: 64px 0;
+  border-bottom: 1px solid var(--border);
+}
+.section:last-child { border-bottom: none; }
+
+.section-title {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.section-desc {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* ---- TABLE (Profile / Skills) ---- */
+.profile-table,
+.skills-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.profile-table th,
+.skills-table th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.55;
+  padding: 12px 20px 12px 0;
+  width: 160px;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.profile-table td,
+.skills-table td {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.profile-table tr:last-child td,
+.skills-table tr:last-child td { border-bottom: none; }
+
+/* ---- FOOTER ---- */
+.footer {
+  background: var(--accent);
+  color: var(--base);
+  text-align: center;
+  padding: 32px 20px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  opacity: 0.9;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 620px) {
+  .hero { padding: 48px 24px; }
+  .hero-inner {
+    flex-direction: column;
+    gap: 28px;
+    text-align: center;
+  }
+  .hero-name::after { margin: 10px auto 0; }
+  .hero-links { justify-content: center; }
+
+  main { padding: 0 24px 60px; }
+
+  .profile-table th,
+  .skills-table th { width: 120px; font-size: 0.68rem; }
+}
